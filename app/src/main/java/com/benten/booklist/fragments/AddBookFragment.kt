@@ -4,7 +4,9 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import com.benten.booklist.MainActivity
 import com.benten.booklist.databinding.FragmentAddBookBinding
+import com.benten.booklist.entities.BookModel
 import com.google.android.material.bottomsheet.BottomSheetDialogFragment
 
 class AddBookFragment : BottomSheetDialogFragment() {
@@ -19,12 +21,29 @@ class AddBookFragment : BottomSheetDialogFragment() {
         return binding.root
     }
 
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+        binding.btnSubmit.setOnClickListener {
+            val bookModel = BookModel(
+                0,
+                binding.etBookName.text.toString(),
+                binding.etBookUrl.text.toString(),
+                binding.etRating.text.toString().toInt()
+            )
+
+            (requireActivity() as MainActivity).insertAndUpdateRv(bookModel)
+            dismissAllowingStateLoss()
+
+        }
+    }
+
     override fun onDestroyView() {
         _binding = null
         super.onDestroyView()
 
     }
-    companion object{
+
+    companion object {
         const val KEY_ADD_FRAGMENT = "KEY_ADD_FRAGMENT"
     }
 }

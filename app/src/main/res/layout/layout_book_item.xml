@@ -2,8 +2,8 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    tools:background="#242A32"
-    android:layout_height="wrap_content">
+    android:layout_height="wrap_content"
+    tools:background="#242A32">
 
     <androidx.constraintlayout.widget.Guideline
         android:id="@+id/startGuideline"
@@ -23,11 +23,11 @@
     <com.facebook.drawee.view.SimpleDraweeView
         android:id="@+id/tvBookPoster"
         android:layout_width="95dp"
-        app:roundedCornerRadius="16dp"
-        android:layout_marginTop="20dp"
         android:layout_height="120dp"
+        android:layout_marginTop="20dp"
         app:layout_constraintStart_toStartOf="@id/startGuideline"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        app:roundedCornerRadius="16dp" />
 
     <TextView
         android:id="@+id/tvBookName"
@@ -43,14 +43,13 @@
         tools:text="Die hard" />
 
     <androidx.appcompat.widget.AppCompatImageView
+        android:id="@+id/ivStar"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        app:layout_constraintEnd_toEndOf="@id/endGuideline"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintBottom_toBottomOf="parent"
-        android:id="@+id/ivStar"
         android:src="@drawable/ic_star"
-        />
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="@id/endGuideline"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
         android:id="@+id/tvRating"
@@ -60,10 +59,11 @@
         android:fontFamily="@font/poppins_medium"
         android:textColor="@color/white"
         android:textSize="12sp"
-        app:layout_constraintTop_toBottomOf="@id/ivStar"
-        app:layout_constraintStart_toStartOf="@id/ivStar"
         app:layout_constraintEnd_toEndOf="@id/ivStar"
+        app:layout_constraintStart_toStartOf="@id/ivStar"
+        app:layout_constraintTop_toBottomOf="@id/ivStar"
         tools:text="9.5" />
+
     <TextView
         android:id="@+id/tvReleaseDate"
         android:layout_width="wrap_content"
@@ -77,7 +77,14 @@
         app:layout_constraintTop_toBottomOf="@id/tvBookName"
         tools:text="Die hard" />
 
-
+    <Button
+        android:id="@+id/btnDelete"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="10dp"
+        android:text="DELETE"
+        app:layout_constraintEnd_toEndOf="@id/endGuideline"
+        app:layout_constraintTop_toTopOf="parent" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
