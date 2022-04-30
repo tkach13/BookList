@@ -1,0 +1,142 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/startGuideline"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.05" />
+
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/endGuideline"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.95" />
+    <Space
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        app:layout_constraintDimensionRatio="18.75"
+        android:id="@+id/topMargin"
+        app:layout_constraintTop_toTopOf="parent"/>
+    <TextView
+        android:id="@+id/tvBookName"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="3dp"
+        android:fontFamily="@font/poppins_medium"
+        android:textColor="@color/blackish"
+         app:layout_constraintTop_toBottomOf="@id/topMargin"
+        android:textSize="22sp"
+        app:layout_constraintStart_toEndOf="@id/startGuideline"
+        android:text="Add a book" />
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/tvName"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Book name"
+        android:fontFamily="@font/poppins_medium"
+        android:textColor="@color/blackish"
+        android:textSize="16sp"
+        app:layout_constraintTop_toBottomOf="@id/tvBookName"
+        app:layout_constraintStart_toStartOf="@id/startGuideline" />
+
+    <androidx.appcompat.widget.AppCompatEditText
+        android:id="@+id/etToDo"
+        android:layout_width="0dp"
+        android:layout_height="40dp"
+        android:background="@drawable/edittext_bg"
+        android:hint="enter book name"
+        android:imeOptions="actionNext"
+        android:fontFamily="@font/poppins_medium"
+        android:maxLines="1"
+        android:singleLine="true"
+        android:layout_marginTop="10dp"
+        android:paddingStart="10dp"
+        android:textColor="@color/black"
+        android:textSize="16sp"
+        app:layout_constraintTop_toBottomOf="@+id/tvName"
+        app:layout_constraintStart_toStartOf="@id/startGuideline"
+        app:layout_constraintEnd_toEndOf="@id/endGuideline" />
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/tvBookUrl"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Book url "
+        android:layout_marginTop="10dp"
+        android:textColor="@color/blackish"
+        android:fontFamily="@font/poppins_medium"
+        android:textSize="16sp"
+        app:layout_constraintTop_toBottomOf="@id/etToDo"
+        app:layout_constraintStart_toStartOf="@id/startGuideline" />
+
+    <androidx.appcompat.widget.AppCompatEditText
+        android:id="@+id/etBookUrl"
+        android:layout_width="0dp"
+        android:layout_height="40dp"
+        android:background="@drawable/edittext_bg"
+        android:hint="enter book poster url"
+        android:imeOptions="actionNext"
+        android:maxLines="1"
+        android:singleLine="true"
+        android:fontFamily="@font/poppins_medium"
+        android:layout_marginTop="10dp"
+        android:paddingStart="10dp"
+        android:textColor="@color/black"
+        android:textSize="16sp"
+        app:layout_constraintTop_toBottomOf="@+id/tvBookUrl"
+        app:layout_constraintStart_toStartOf="@id/startGuideline"
+        app:layout_constraintEnd_toEndOf="@id/endGuideline" />
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/tvRating"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Book rating "
+        android:layout_marginTop="10dp"
+        android:textColor="@color/blackish"
+        android:fontFamily="@font/poppins_medium"
+        android:textSize="16sp"
+        app:layout_constraintTop_toBottomOf="@id/etBookUrl"
+        app:layout_constraintStart_toStartOf="@id/startGuideline" />
+
+    <androidx.appcompat.widget.AppCompatEditText
+        android:id="@+id/etRating"
+        android:layout_width="0dp"
+        android:layout_height="40dp"
+        android:background="@drawable/edittext_bg"
+        android:hint="enter book rating"
+        android:imeOptions="actionNext"
+        android:inputType="number"
+        android:maxLines="1"
+        android:singleLine="true"
+        android:fontFamily="@font/poppins_medium"
+        android:layout_marginTop="10dp"
+        android:paddingStart="10dp"
+        android:textColor="@color/black"
+        android:textSize="16sp"
+        app:layout_constraintTop_toBottomOf="@+id/tvRating"
+        app:layout_constraintStart_toStartOf="@id/startGuideline"
+        app:layout_constraintEnd_toEndOf="@id/endGuideline" />
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:layout_width="0dp"
+        android:layout_height="40dp"
+        android:background="@drawable/bg_fab"
+        android:layout_marginTop="40dp"
+        android:fontFamily="@font/poppins_medium"
+        android:textColor="@color/white"
+        android:text="Save book"
+        app:layout_constraintTop_toBottomOf="@id/etRating"
+        app:layout_constraintStart_toStartOf="@id/startGuideline"
+        app:layout_constraintEnd_toEndOf="@id/endGuideline"
+        android:id="@+id/btnSubmit"/>
+
+
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>
