@@ -18,6 +18,7 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         binding = ActivityMainBinding.inflate(layoutInflater)
         Fresco.initialize(this)
+
         setContentView(binding.root)
         binding.addBook.setOnClickListener {
             AddBookFragment().show(supportFragmentManager, AddBookFragment.KEY_ADD_FRAGMENT)
@@ -27,6 +28,7 @@ class MainActivity : AppCompatActivity() {
         binding.rvBooks.layoutManager =
             LinearLayoutManager(this, LinearLayoutManager.VERTICAL, false)
         binding.rvBooks.adapter = booksAdapter
+
 
 
     }
