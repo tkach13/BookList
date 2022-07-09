@@ -23,7 +23,6 @@ abstract class BooksDatabase : RoomDatabase() {
         fun buildDatabase(context: Context): BooksDatabase {
             return Room.databaseBuilder(context, BooksDatabase::class.java, DATABASE_NAME)
                 .fallbackToDestructiveMigration()
-                .allowMainThreadQueries()
                 .build()
         }
     }

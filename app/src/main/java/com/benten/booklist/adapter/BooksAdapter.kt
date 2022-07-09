@@ -10,6 +10,7 @@ class BooksAdapter : RecyclerView.Adapter<BooksAdapter.BooksViewHolder>() {
 
     private val currentList = mutableListOf<BookModel>()
     private lateinit var onDeleteClickListener: (BookModel) -> Unit
+    private lateinit var onItemClickListener: (BookModel) -> Unit
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): BooksViewHolder {
         val binding =
@@ -23,6 +24,10 @@ class BooksAdapter : RecyclerView.Adapter<BooksAdapter.BooksViewHolder>() {
 
     fun setDeleteClickListener(listener: (BookModel) -> Unit) {
         this.onDeleteClickListener = listener
+    }
+
+    fun setItemClickListener(listener: (BookModel) -> Unit) {
+        this.onItemClickListener = listener
     }
 
     override fun getItemCount(): Int {
@@ -43,6 +48,9 @@ class BooksAdapter : RecyclerView.Adapter<BooksAdapter.BooksViewHolder>() {
             binding.tvRating.text = bookModel.rating.toString()
             binding.btnDelete.setOnClickListener {
                 onDeleteClickListener.invoke(bookModel)
+            }
+            binding.root.setOnClickListener {
+                onItemClickListener.invoke(bookModel)
             }
         }
     }
