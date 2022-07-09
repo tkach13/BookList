@@ -3,6 +3,7 @@ package com.benten.booklist
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import androidx.recyclerview.widget.LinearLayoutManager
+import com.benten.app.App
 import com.benten.booklist.adapter.BooksAdapter
 import com.benten.booklist.databinding.ActivityMainBinding
 import com.benten.booklist.entities.BookModel
@@ -29,10 +30,15 @@ class MainActivity : AppCompatActivity() {
             LinearLayoutManager(this, LinearLayoutManager.VERTICAL, false)
         binding.rvBooks.adapter = booksAdapter
 
+        updateBooks()
 
 
     }
 
+    fun updateBooks() {
+        val bookItems = (application as App).database.booksDao().getBooks()
+        drawBookItems(bookItems)
+    }
 
     private fun drawBookItems(bookItems: List<BookModel>) {
         booksAdapter.updateAll(bookItems)

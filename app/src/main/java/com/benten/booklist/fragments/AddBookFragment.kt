@@ -4,6 +4,8 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import com.benten.app.App
+import com.benten.booklist.MainActivity
 import com.benten.booklist.databinding.FragmentAddBookBinding
 import com.benten.booklist.entities.BookModel
 import com.google.android.material.bottomsheet.BottomSheetDialogFragment
@@ -32,7 +34,8 @@ class AddBookFragment : BottomSheetDialogFragment() {
                 binding.etBookUrl.text.toString(),
                 binding.etRating.text.toString().toInt()
             )
-
+            (requireActivity().application as App).database.booksDao().insertBook(bookModel)
+            (requireActivity() as MainActivity).updateBooks()
             dismissAllowingStateLoss()
 
         }
